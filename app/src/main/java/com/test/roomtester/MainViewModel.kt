@@ -142,7 +142,8 @@ class MainViewModel(private val repository: TransactionRepository, private val c
 
             // Try method 1: Root command
             try {
-                val process = Runtime.getRuntime().exec(arrayOf("su", "-c", "reboot -p"))
+//                val process = Runtime.getRuntime().exec(arrayOf("su", "-c", "reboot -p"))
+                val process = Runtime.getRuntime().exec("reboot -p")
                 process.waitFor()
                 success = true
                 return@launch

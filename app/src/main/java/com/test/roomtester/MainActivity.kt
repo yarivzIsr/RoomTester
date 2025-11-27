@@ -1,5 +1,6 @@
 package com.test.roomtester
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -78,6 +79,13 @@ fun TransactionTesterScreen(viewModel: MainViewModel) {
             Text(
                 text = "Room Database Tester",
                 style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+
+            // Print Build.Version
+            Text(
+                text = "${Build.DISPLAY})",
+                style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
