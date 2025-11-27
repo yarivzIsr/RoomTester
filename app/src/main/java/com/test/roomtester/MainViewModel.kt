@@ -22,10 +22,7 @@ data class MainUiState(
     val message: String? = null
 )
 
-class MainViewModel(
-    private val repository: TransactionRepository,
-    private val context: Context
-) : ViewModel() {
+class MainViewModel(private val repository: TransactionRepository, private val context: Context) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MainUiState())
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
@@ -100,7 +97,8 @@ class MainViewModel(
 
             // Try method 1: Root command
             try {
-                val process = Runtime.getRuntime().exec(arrayOf("su", "-c", "reboot"))
+//                val process = Runtime.getRuntime().exec(arrayOf("su", "-c", "reboot"))
+                val process = Runtime.getRuntime().exec("reboot")
                 process.waitFor()
                 success = true
                 return@launch
